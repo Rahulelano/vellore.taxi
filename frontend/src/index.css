@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 20% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 45 100% 95%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.75rem;
+
+    --taxi-gold: 45 100% 51%;
+    --taxi-dark: 220 20% 10%;
+    --taxi-green: 152 60% 42%;
+    --taxi-orange: 25 95% 55%;
+    --taxi-light: 40 30% 96%;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-taxi-orange;
+  }
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+@layer components {
+  .cta-button {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300;
+  }
+  .cta-primary {
+    @apply cta-button bg-primary text-primary-foreground hover:brightness-110 shadow-lg shadow-primary/30;
+  }
+  .cta-secondary {
+    @apply cta-button bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+  .cta-whatsapp {
+    @apply cta-button bg-taxi-green text-white hover:brightness-110;
+  }
+  .cta-call {
+    @apply cta-button bg-taxi-orange text-white hover:brightness-110;
+  }
+}
